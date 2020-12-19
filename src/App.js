@@ -22,7 +22,7 @@ class App extends Component {
         // store photo data in state
         this.setState({
           photos: res.data.photos.photo,
-          isLoaded: true
+          isInitialised: true
         });
       })
       .catch(err => console.log('Error fetching and parsing data', err));
