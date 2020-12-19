@@ -7,7 +7,8 @@ import PhotoList from './components/PhotoList/PhotoList';
 class App extends Component {
   state = {
     searchText: '',
-    photos: []
+    photos: [],
+    isInitialised: false
   }
   
   // search form submit handler
@@ -19,7 +20,10 @@ class App extends Component {
     axios.get(url)
       .then(res => {
         // store photo data in state
-        this.setState({photos: res.data.photos.photo});
+        this.setState({
+          photos: res.data.photos.photo,
+          isLoaded: true
+        });
       })
       .catch(err => console.log('Error fetching and parsing data', err));
   }
@@ -33,7 +37,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <SearchForm onSearch={this.searchSubmitHandler} onChangeHandler={this.onInputChangeHandler}/>
-        <PhotoList photos={this.state.photos} />    
+        <PhotoList photos={this.state.photos} isInitialised={this.state.isInitialised}/>    
       </div>
     );
   }
