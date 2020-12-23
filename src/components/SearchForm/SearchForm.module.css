@@ -4,7 +4,7 @@
 	margin: 0 auto 32px;
 }
 
-button {
+.SearchForm button {
 	outline: none;
 	background-color: #438bbd;
 	border: none;
@@ -13,6 +13,6 @@ button {
 	cursor: pointer;
 }
 
-button:hover {
+.SearchForm button:hover {
 	background-color: #275270;
 }
